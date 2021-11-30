@@ -18,7 +18,7 @@ dataAvgPacketDelayConfidence = zeros(length(lambda),1);
 
 for i = 1:length(lambda)
     for n = 1:N
-        [PL(n), APD(n), MPD(n), TT(n)] = Simulator1(lambda(i),C,f,P);
+        [PL(n), APD(n), MPD(n), TT(n)] = simulator1(lambda(i),C,f,P);
     end
     
     media = mean(PL);
@@ -45,7 +45,7 @@ figure(1)
 bar(lambda,dataAvgPacketDelay)
 
 xlabel('Packet rate (pps)')
-ylabel('Average packet delay (ms)')
+title('Average packet delay (ms)')
 ylim([0,35])
 hold on
 er = errorbar(lambda,dataAvgPacketDelay,dataAvgPacketDelayConfidence,dataAvgPacketDelayConfidence);    
